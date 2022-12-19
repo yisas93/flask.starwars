@@ -17,3 +17,19 @@ class User(db.Model):
             "email": self.email,
             # do not serialize the password, its a security breach
         }
+
+class Planets (db.Model):
+    __tablename__="planets"
+    id=db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(150), unique=True, nullable=False)
+    def __repr__(self):
+        return "<Planets %r>" % self.id
+
+        def serialize(self):
+            return {
+                "id":self.id,
+                "name":self.name,
+            }
+class Characters(db.Model):
+    __tablename__="characters"
+    id=db.Column

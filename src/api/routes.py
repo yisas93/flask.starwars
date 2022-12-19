@@ -16,3 +16,9 @@ def handle_hello():
     }
 
     return jsonify(response_body), 200
+
+api.route("/planets", methods=["GET"])
+def get_planets():
+    planets=Planets.query.filter(Planets).all()
+    return jsonify({
+        "planets": planets.data}),200
